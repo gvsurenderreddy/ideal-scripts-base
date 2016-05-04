@@ -20,7 +20,7 @@ cd /etc/openvpn && source ./vars
 openvpn --genkey --secret /etc/openvpn/keys/ta.key
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p 
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to 52.79.167.14
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to 52.79.167.140
 
 cat > /etc/openvpn/server.conf <<EOF
 port 1194
