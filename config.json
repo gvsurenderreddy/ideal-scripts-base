@@ -1,0 +1,8 @@
+{
+"server" : "52.79.167.14",
+"server_port" : 1984,
+"local_port" : 1080,
+"password" : "bigbrother",
+"method" : "aes-256-cfb",
+"remarks" : "aws-1984"
+}
