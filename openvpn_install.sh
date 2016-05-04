@@ -14,21 +14,21 @@ chmod +x /etc/openvpn/vars
 cd /etc/openvpn && source ./vars
 ./clean-all
 ./build-ca
-./build-key-server oa.idealsee.com
+./build-key-server oa.xxx.com
 ./build-dh
-./build-key oa-idealsee-cd
+./build-key oa-xxx-cd
 openvpn --genkey --secret /etc/openvpn/keys/ta.key
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p 
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to 52.79.167.140
+iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to 52.79.167.xx
 
 cat > /etc/openvpn/server.conf <<EOF
 port 1194
 proto udp
 dev tun
 ca keys/ca.crt
-cert keys/oa.idealsee.com.crt
-key keys/oa.idealsee.com.key  # This file should be kept secret
+cert keys/oa.xxx.com.crt
+key keys/oa.xxx.com.key  # This file should be kept secret
 dh keys/dh2048.pem
 server 10.8.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt
